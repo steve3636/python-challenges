@@ -24,9 +24,26 @@ def analyze_budget_data(csv_file):
 csv_file_path = 'budget_data.csv'
 total_months, net_total, average_change, greatest_increase, greatest_decrease = analyze_budget_data(csv_file_path)
 
-print("The total number of months included in the dataset:", total_months)
+# Write a text file
+output_file_path = 'budget_data_output.txt'
+with open(output_file_path, 'w') as output_file:
+    output_file.write("The total number of months included in the dataset: {}\n".format(total_months))
+    output_file.write("The final net total $ of 'Profit/Losses': ${:.2f}\n".format(net_total))
+    output_file.write("The average of the changes: {}\n".format(average_change))
+    output_file.write("The greatest increase in profits (date and $): {} ${:.2f}\n".format(greatest_increase["date"], greatest_increase["$"]))
+    output_file.write("The greatest decrease in profits (date and $): {} ${:.2f}\n".format(greatest_decrease["date"], greatest_decrease["$"]))
+
+print("Election Result")
+print("___________________________________")
+print("Total number of months included in the dataset:", total_months)
 print("The final net total $ of 'Profit/Losses': ${:.2f}".format(net_total))
 print("The average of the changes:", average_change)
 print("The greatest increase in profits (date and $):", greatest_increase["date"], "${:.2f}".format(greatest_increase["$"]))
 print("The greatest decrease in profits (date and $):", greatest_decrease["date"], "${:.2f}".format(greatest_decrease["$"]))
+print("___________________________________")
+print("Output written to", output_file_path)
 
+
+
+
+  

@@ -37,3 +37,15 @@ print("------The Winner-------")
 print("Winner of the election:", winner)
 
 print("------End Report----------")
+#exporting in txt form.
+txt_file_path = "election_result.txt"
+with open(txt_file_path, "w+") as txtfile:
+   
+   txtfile.write("Election Result\n")
+   txtfile.write("-------------------\n")
+   txtfile.write(f"Total votes:{total_votes}\n")
+   for candidate, percentage in candidate_percentages.items():
+        txtfile.write(f"{candidate}: {percentage:.2f}%   (Total Votes: {candidate_votes[candidate]})\n")
+   txtfile.write("------The Winner-------\n")
+   txtfile.write(f"Winner of the election: {winner}\n")
+  
